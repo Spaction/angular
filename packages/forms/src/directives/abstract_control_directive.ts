@@ -162,6 +162,17 @@ export abstract class AbstractControlDirective {
 
   /**
    * @description
+   * Returns a multicasting observable of validator changes for the control that emits every time the
+   * validator(s) of the control changes in the UI or programmatically.
+   * If the control is not present, null is returned.
+   */
+  get validatorChanges(): Observable<any>|null {
+    return this.control ? this.control.validatorChanges : null;
+  }
+  
+
+  /**
+   * @description
    * Returns an array that represents the path from the top-level form to this control.
    * Each index is the string name of the control on that level.
    */
